@@ -16,7 +16,7 @@ class SandBox extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextButton(
-              onPressed: () => Get.toNamed('/htpp'),
+              onPressed: () => Get.toNamed('/http'),
               child: Text(
                 'HTTP',
                 style: TextStyle(fontSize: 20, color: Colors.blue),

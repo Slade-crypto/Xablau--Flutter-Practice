@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:xablau/http/http_page.dart';
 import 'package:xablau/paginas/home_principal.dart';
+import 'package:xablau/paginas/sandbox.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,8 +13,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: HomePage(),
+    return GetMaterialApp(
+      getPages: [
+        GetPage(
+          name: '/',
+          page: () => SandBox(),
+          children: [
+            GetPage(name: '/http', page: () => HttpPage()),
+          ],
+        ),
+      ],
     );
   }
 }

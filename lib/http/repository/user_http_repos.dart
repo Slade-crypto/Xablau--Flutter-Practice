@@ -9,7 +9,9 @@ class UserHttpRepos implements IUserRepos {
   Future<List<UserModel>> findAllUsers() async {
     final response = await http.get(
         Uri.parse('https://63ad923c3e465169165df234.mockapi.io/api/v1/user'));
-    final responseMap = jsonDecode(response.body);
-    return responseMap;
+    final List<dynamic> responseMap = jsonDecode(response.body);
+    return responseMap
+        .map<UserModel>((resp) => UserModel.fromMap(resp))
+        .toList();
   }
 }
